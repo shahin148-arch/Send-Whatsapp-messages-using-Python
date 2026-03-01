@@ -2,15 +2,15 @@ from twilio.rest import Client
 from datetime import datetime
 import time
 # Twilio credentials
-account_sid = 'ACc7f53e1dcad1c174ea86e76d4239e703'
-auth_token = 'cbc245eadcf5a61fb732f5e30f60d748'
+account_sid = "ACxxxxxxxxxxxxxxxxxxxxx"
+auth_token = "your_auth_token"
 
 client = Client(account_sid, auth_token)
 
 def send_whatsapp_message(recipient_number, message):
     try:
         message = client.messages.create ( 
-            from_= 'whatsapp:+14155238886',
+            from_= 'whatsapp:+000000000000',#your whatsapp number provided by Twilio
             body = message,
             to = 'whatsapp:'+recipient_number
         )
@@ -39,5 +39,6 @@ else:
     print("Scheduled time is in the past. Please enter a future date and time.")
 
     time.sleep(time_diff)
+
 
     send_whatsapp_message(recipient_number, message_body)
